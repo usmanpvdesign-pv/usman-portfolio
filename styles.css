@@ -7,6 +7,9 @@ body{ background:#000; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
 /* NAVBAR */
 .navbar{ padding:25px 0; transition:.3s; }
 .navbar.scrolled{ background:rgba(0,0,0,.85); backdrop-filter:blur(10px);}
+.brand-logo{ display:inline-flex; align-items:center; justify-content:center; line-height:0; }
+.navbar .brand-logo svg{ width:28px; height:auto; display:block; transition:transform .25s ease; }
+.navbar .brand-logo:hover svg{ transform:translateY(-2px); }
 .nav-link{ position:relative; }
 .nav-link::after{ content:""; position:absolute; width:0%; height:2px; left:0; bottom:-6px; background:#c084fc; transition:.3s;}
 .nav-link:hover::after{ width:100%;}
@@ -130,7 +133,8 @@ body{ background:#000; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
 /* FOOTER */
 .site-footer{ padding:36px 0 42px; }
 .footer-inner{ width:min(1140px,92%); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-.footer-brand{ font-size:28px; font-weight:600; letter-spacing:2px; }
+.footer-brand{ display:flex; align-items:center; }
+.brand-logo-footer svg{ width:24px; height:auto; display:block; opacity:.95; }
 .footer-social{ display:flex; gap:10px; }
 .footer-social a{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; border:1px solid rgba(255,255,255,.2); text-decoration:none; transition:.25s; }
 .footer-social a:hover{ transform:translateY(-3px); border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.08); }
