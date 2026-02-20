@@ -13,6 +13,25 @@ if (window.particlesJS) {
   });
 }
 
+/* HERO MICRO PARTICLES */
+const heroParticles = document.getElementById('heroParticles');
+if (heroParticles) {
+  const count = window.innerWidth < 768 ? 26 : 44;
+  for (let i = 0; i < count; i += 1) {
+    const dot = document.createElement('span');
+    dot.className = 'hero-particle';
+    dot.style.left = `${Math.random() * 100}%`;
+    dot.style.top = `${Math.random() * 100}%`;
+    const size = (Math.random() * 2.2) + 1.2;
+    dot.style.width = `${size}px`;
+    dot.style.height = `${size}px`;
+    dot.style.opacity = `${(Math.random() * 0.45) + 0.15}`;
+    dot.style.animationDuration = `${(Math.random() * 9) + 8}s`;
+    dot.style.animationDelay = `${Math.random() * 6}s`;
+    heroParticles.appendChild(dot);
+  }
+}
+
 /* SCROLL PROJECT IMAGE CHANGE */
 const projectDetails = document.querySelectorAll('.project-detail');
 const projectImage = document.getElementById('projectImage');

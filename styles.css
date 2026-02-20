@@ -25,6 +25,15 @@ body{ background:#000; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
 
 /* HERO */
 .hero-section{ min-height:100vh; padding-top:160px; padding-bottom:140px; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; }
+.hero-particles{ position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+.hero-particle{ position:absolute; width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,.7); filter:blur(.2px); animation:heroFloat linear infinite; }
+.hero-section .container,.scroll-indicator{ position:relative; z-index:1; }
+@keyframes heroFloat{
+  0%{ transform:translate3d(0,20px,0); opacity:0; }
+  20%{ opacity:.55; }
+  80%{ opacity:.2; }
+  100%{ transform:translate3d(0,-85px,0); opacity:0; }
+}
 .glass-badge{ display:inline-block; padding:12px 32px; border-radius:30px; background:rgba(255,255,255,0.08); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.2); margin-bottom:50px; font-weight:400;}
 .hero-title{ font-weight:300; font-size:72px; line-height:1.1; letter-spacing:-1px; }
 .gradient-text{ background:linear-gradient(90deg,#ffffff,#c084fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
@@ -142,6 +151,12 @@ body{ background:#000; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
 .action-btn.primary:hover{ transform:translateY(-4px); box-shadow:0 16px 24px rgba(255,255,255,.2); }
 .action-btn.ghost{ background:rgba(255,255,255,.07); color:#fff; border:1px solid rgba(255,255,255,.2); }
 .action-btn.ghost:hover{ transform:translateY(-4px); border-color:rgba(255,255,255,.4); }
+.contact-line{ margin:22px 0 0; display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; }
+.contact-pill{ display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.62); text-decoration:none; border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:8px 14px; background:rgba(255,255,255,.03); transition:all .25s ease; }
+.contact-pill i{ font-size:12px; opacity:.75; transform:translateY(.2px); transition:transform .25s ease, opacity .25s ease; }
+.contact-pill span{ font-size:13px; letter-spacing:.2px; }
+.contact-pill:hover{ color:rgba(255,255,255,.92); border-color:rgba(255,255,255,.32); background:rgba(255,255,255,.08); }
+.contact-pill:hover i{ opacity:1; transform:translateY(-1px); }
 
 /* FOOTER */
 .site-footer{ padding:36px 0 42px; }
