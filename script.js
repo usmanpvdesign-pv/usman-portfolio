@@ -17,6 +17,7 @@ if (window.particlesJS) {
 const projectDetails = document.querySelectorAll('.project-detail');
 const projectImage = document.getElementById('projectImage');
 const projectCounter = document.getElementById('projectCounter');
+const projectVisual = document.getElementById('projectVisual');
 
 const options = {root:document.querySelector('.project-right'), threshold:0.6};
 
@@ -27,6 +28,12 @@ if (projectDetails.length && projectImage) {
         projectImage.style.opacity = "0.5";
         const img = entry.target.getAttribute('data-img');
         projectImage.src = img;
+        const bg = entry.target.getAttribute('data-bg');
+        if (projectVisual) {
+          const hasSolidBg = Boolean(bg);
+          projectVisual.classList.toggle('solid-bg', hasSolidBg);
+          projectVisual.style.background = hasSolidBg ? bg : '';
+        }
         const index = entry.target.getAttribute('data-index');
         if (projectCounter) {
           const total = String(projectDetails.length).padStart(2, '0');
