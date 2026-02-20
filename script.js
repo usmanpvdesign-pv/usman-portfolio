@@ -7,8 +7,18 @@ window.addEventListener("scroll",function(){
 /* PARTICLES CONFIG */
 if (window.particlesJS) {
   particlesJS('particles-js', {
-    "particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"opacity":{"value":0.05,"random":true},"size":{"value":3,"random":true},"line_linked":{"enable":true,"distance":120,"color":"#ffffff","opacity":0.02,"width":1},"move":{"enable":true,"speed":1,"direction":"none","random":true,"straight":false,"out_mode":"out"}},
-    "interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false},"onclick":{"enable":false}},"modes":{"grab":{"distance":400,"line_linked":{"opacity":0.1}}}},
+    "particles":{
+      "number":{"value":85,"density":{"enable":true,"value_area":950}},
+      "color":{"value":"#ffffff"},
+      "opacity":{"value":0.24,"random":true},
+      "size":{"value":2.1,"random":true},
+      "line_linked":{"enable":false},
+      "move":{"enable":true,"speed":0.55,"direction":"none","random":true,"straight":false,"out_mode":"out"}
+    },
+    "interactivity":{
+      "detect_on":"canvas",
+      "events":{"onhover":{"enable":false},"onclick":{"enable":false},"resize":true}
+    },
     "retina_detect": true
   });
 }
