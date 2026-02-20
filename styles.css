@@ -22,9 +22,6 @@ body{ background:#000; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
 .nav-social-links{ display:flex; align-items:center; gap:14px; }
 .nav-social-links a{ color:rgba(255,255,255,.84); text-decoration:none; font-size:19px; line-height:1; transition:.25s; }
 .nav-social-links a:hover{ color:#fff; transform:translateY(-1px); }
-.nav-resume-btn{ display:inline-flex; align-items:center; gap:8px; border-radius:12px; background:#fff; color:#111; text-decoration:none; font-weight:500; font-size:14px; padding:8px 14px; }
-.nav-resume-btn:hover{ color:#000; transform:translateY(-1px); }
-.nav-resume-btn i{ font-size:14px; line-height:1; }
 
 /* HERO */
 .hero-section{ min-height:100vh; padding-top:160px; padding-bottom:140px; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; }
