@@ -113,15 +113,24 @@
   }
   .project-left.is-mac #projectImage {
     display: block;
-    width: calc(100% - 120px);
-    height: calc(100% - 120px);
-    margin: 60px;
-    object-fit: contain;
+    width: calc(100% - 64px);
+    height: calc(100% - 64px);
+    margin: 32px;
+    object-fit: cover;
+    object-position: center top;
     transform: none;
-    border-radius: 14px;
+    border-radius: 18px;
     border: 1px solid rgba(255,255,255,.16);
-    background: #121826;
-    box-shadow: 0 24px 50px rgba(0,0,0,.45);
+    background: #0f1420;
+    box-shadow: 0 24px 60px rgba(0,0,0,.45);
+  }
+  @media (max-width: 992px) {
+    .project-left.is-mac #projectImage {
+      width: calc(100% - 30px);
+      height: calc(100% - 30px);
+      margin: 15px;
+      border-radius: 12px;
+    }
   }
 </style>
 </head>
