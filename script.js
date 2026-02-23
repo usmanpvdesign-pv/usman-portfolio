@@ -45,7 +45,6 @@ if (heroParticles) {
 /* SCROLL PROJECT IMAGE CHANGE */
 const projectDetails = document.querySelectorAll('.project-detail');
 const projectImage = document.getElementById('projectImage');
-const projectMacImage = document.getElementById('projectMacImage');
 const projectCounter = document.getElementById('projectCounter');
 const projectVisual = document.getElementById('projectVisual');
 const FIRST_PROJECT_IMG = 'image/Main-folio.png';
@@ -54,11 +53,6 @@ const SECOND_PROJECT_IMG = 'image/02.jpg';
 if (projectImage) {
   projectImage.addEventListener('error', ()=>{
     projectImage.src = FIRST_PROJECT_IMG;
-  });
-}
-if (projectMacImage) {
-  projectMacImage.addEventListener('error', ()=>{
-    projectMacImage.src = SECOND_PROJECT_IMG;
   });
 }
 
@@ -70,9 +64,6 @@ if (projectDetails.length && projectImage) {
     const img = target.getAttribute('data-img') || (index === '2' ? SECOND_PROJECT_IMG : FIRST_PROJECT_IMG);
     projectImage.style.opacity = "0.5";
     projectImage.src = img;
-    if (projectMacImage) {
-      projectMacImage.src = img;
-    }
     const bg = target.getAttribute('data-bg');
     const frame = target.getAttribute('data-frame');
     if (projectVisual) {
