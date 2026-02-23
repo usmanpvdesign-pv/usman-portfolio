@@ -67,6 +67,58 @@
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Project media frame fallback (works even if external CSS is missing) */
+  .project-media-shell { position: relative; width: 100%; height: 100%; }
+  .project-macbook { position: absolute; inset: 0; display: grid; place-items: center; }
+  .project-macbook-frame {
+    width: min(92%, 980px);
+    height: min(78%, 620px);
+    background: #0d0f14;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: 0 30px 70px rgba(0,0,0,.45);
+    padding: 18px 18px 12px;
+    display: none;
+    position: relative;
+  }
+  .project-macbook-frame::before {
+    content: "";
+    width: 120px;
+    height: 14px;
+    border-radius: 0 0 10px 10px;
+    background: #0b0d12;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .project-macbook-screen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #11151f;
+    border-radius: 10px;
+  }
+  .project-macbook-base {
+    position: absolute;
+    left: 50%;
+    bottom: -14px;
+    transform: translateX(-50%);
+    width: 58%;
+    height: 10px;
+    border-radius: 0 0 24px 24px;
+    background: linear-gradient(180deg, #9aa3af, #6f7782);
+    display: none;
+  }
+  .project-left.is-mac .project-macbook-frame,
+  .project-left.is-mac .project-macbook-base {
+    display: block;
+  }
+  .project-left.is-mac #projectImage {
+    display: none;
+  }
+</style>
 </head>
 <body id="top">
 
@@ -147,11 +199,19 @@
 <section class="projects-section" id="projects">
   <div class="projects-layout">
     <div class="project-left solid-bg" id="projectVisual">
+      <div class="project-media-shell" aria-hidden="true">
+        <div class="project-macbook">
+          <div class="project-macbook-frame">
+            <img id="projectMacImage" class="project-macbook-screen" src="image/02.jpg" alt="Project mockup in Mac frame">
+          </div>
+          <div class="project-macbook-base"></div>
+        </div>
+      </div>
       <img id="projectImage" src="image/Main-folio.png" alt="Project showcase image">
       <div class="project-counter" id="projectCounter">01 <span>/ 05</span></div>
     </div>
     <div class="project-right" id="projectDetails">
-      <article class="project-detail" data-img="image/Main-folio.png" data-bg="#131821" data-index="1">
+      <article class="project-detail" data-img="image/Main-folio.png" data-bg="#131821" data-frame="flat" data-index="1">
         <div class="project-card">
           <span class="project-chip">Enterprise BIM Platform</span>
           <h3 class="project-title">BIM-AI Portal</h3>
@@ -176,7 +236,7 @@
           <a class="project-link" href="https://bimai.dmt.gov.ae/dashboard/accounts/create/" target="_blank" rel="noopener">View Full Case Study ↗</a>
         </div>
       </article>
-      <article class="project-detail" data-img="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1600&q=80" data-index="2">
+      <article class="project-detail" data-img="image/02.jpg" data-bg="#0d1320" data-frame="mac" data-index="2">
         <div class="project-card">
           <span class="project-chip">Healthcare Dashboard</span>
           <h3 class="project-title">CarePulse</h3>
