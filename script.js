@@ -60,6 +60,8 @@ const options = {root:document.querySelector('.project-right'), threshold:[0.45,
 
 if (projectDetails.length && projectImage) {
   const applyProject = (target)=>{
+    projectDetails.forEach((detail)=>detail.classList.remove('is-current'));
+    target.classList.add('is-current');
     const index = target.getAttribute('data-index');
     const img = target.getAttribute('data-img') || (index === '2' ? SECOND_PROJECT_IMG : FIRST_PROJECT_IMG);
     projectImage.style.opacity = "0.5";
