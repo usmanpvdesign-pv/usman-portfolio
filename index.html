@@ -222,7 +222,17 @@
         </div>
       </div>
       <img id="projectImage" src="image/Main-folio.png" alt="Project showcase image">
-      <div class="project-counter" id="projectCounter">01 <span>/ 05</span></div>
+      <div class="project-counter-wrap">
+        <div class="project-counter" id="projectCounter"><span id="projectCounterValue">01</span> <span>/ 05</span></div>
+        <div class="project-nav-controls" aria-label="Project navigation">
+          <button type="button" class="project-nav-btn" id="projectPrevBtn" aria-label="Previous project">
+            <i class="bi bi-arrow-left"></i>
+          </button>
+          <button type="button" class="project-nav-btn" id="projectNextBtn" aria-label="Next project">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
     <div class="project-right" id="projectDetails">
       <article class="project-detail" data-img="image/Main-folio.png" data-bg="#131821" data-frame="flat" data-index="1">

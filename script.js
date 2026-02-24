@@ -46,7 +46,10 @@ if (heroParticles) {
 const projectDetails = document.querySelectorAll('.project-detail');
 const projectImage = document.getElementById('projectImage');
 const projectCounter = document.getElementById('projectCounter');
+const projectCounterValue = document.getElementById('projectCounterValue');
 const projectVisual = document.getElementById('projectVisual');
+const projectPrevBtn = document.getElementById('projectPrevBtn');
+const projectNextBtn = document.getElementById('projectNextBtn');
 const FIRST_PROJECT_IMG = 'image/Main-folio.png';
 const SECOND_PROJECT_IMG = 'image/02.jpg';
 
@@ -59,10 +62,31 @@ if (projectImage) {
 const options = {root:document.querySelector('.project-right'), threshold:[0.45,0.65,0.85]};
 
 if (projectDetails.length && projectImage) {
+  let currentProjectIndex = 0;
+
+  const updateProjectNavState = ()=>{
+    if (projectPrevBtn) {
+      projectPrevBtn.disabled = currentProjectIndex <= 0;
+    }
+    if (projectNextBtn) {
+      projectNextBtn.disabled = currentProjectIndex >= projectDetails.length - 1;
+    }
+  };
+
+  const goToProject = (nextIndex)=>{
+    const boundedIndex = Math.max(0, Math.min(nextIndex, projectDetails.length - 1));
+    const target = projectDetails[boundedIndex];
+    if (!target) {
+      return;
+    }
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   const applyProject = (target)=>{
     projectDetails.forEach((detail)=>detail.classList.remove('is-current'));
     target.classList.add('is-current');
     const index = target.getAttribute('data-index');
+    currentProjectIndex = Math.max(0, Number(index) - 1);
     const img = target.getAttribute('data-img') || (index === '2' ? SECOND_PROJECT_IMG : FIRST_PROJECT_IMG);
     projectImage.style.opacity = "0.5";
     projectImage.src = img;
@@ -77,8 +101,13 @@ if (projectDetails.length && projectImage) {
     if (projectCounter) {
       const total = String(projectDetails.length).padStart(2, '0');
       const current = String(index).padStart(2, '0');
-      projectCounter.innerHTML = `${current} <span>/ ${total}</span>`;
+      if (projectCounterValue) {
+        projectCounterValue.textContent = current;
+      } else {
+        projectCounter.innerHTML = `${current} <span>/ ${total}</span>`;
+      }
     }
+    updateProjectNavState();
     setTimeout(()=>{ projectImage.style.opacity = "1"; }, 120);
   };
 
@@ -97,6 +126,18 @@ if (projectDetails.length && projectImage) {
   projectDetails.forEach(detail=>{
     observer.observe(detail);
   });
+
+  if (projectPrevBtn) {
+    projectPrevBtn.addEventListener('click', ()=>{
+      goToProject(currentProjectIndex - 1);
+    });
+  }
+
+  if (projectNextBtn) {
+    projectNextBtn.addEventListener('click', ()=>{
+      goToProject(currentProjectIndex + 1);
+    });
+  }
 }
 
 /* EXPERIENCE TIMELINE ACTIVE STATE */
